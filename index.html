@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daichi's Portfolio Website</title>
     <style type="text/css">
-    body{
+        body{
         padding: 0px;
         margin: 0px;
         width: auto;
@@ -14,9 +14,10 @@
         background-repeat: no-repeat;
         background-position-x: center;
         background-position-y: 30px;
+        background-color: rgb(233, 232, 232);
         text-align: center;
         }
-        header{
+        #menu{
             display: flex;
             width: 700px;
             margin-left: auto;
@@ -24,9 +25,6 @@
         }
 
 
-        .header{
-            margin-left: 100px;
-        }
         .flex{
             width: 700px;
             margin-left: auto;
@@ -34,15 +32,22 @@
             
             display: flex;
         }
+        #About,#Work,#Profile,#Contact{
+            cursor: pointer;
+            margin-left: 100px;
+        }
+        #About.header-text{
+            background-color: lime;
+        }
 
     </style>
 </head>
 <body>
-    <header>
-        <div class="header">About</div>
-        <div class="header">Work</div>
-        <div class="header">Profile</div>
-        <div class="header">Contact</div>
+    <header id="menu">
+        <div id="About">About</div>
+        <div id="Work">Work</div>
+        <div id="Profile">Profile</div>
+        <div id="Contact">Contact</div>
     </header>
 
     <img src="img/Name.png">
@@ -58,7 +63,7 @@
     <h1>About</h1>
     <p>Daichi Horikawa</p>
     <p>堀川 大地</p>
-
+    <img src="img/IMG_2244.jpg">
 
     <h1>Work</h1>
     <p>フォース株式会社</p>
@@ -78,7 +83,12 @@
 
     <script>
         'use strict';
+        
+        const About = document.getElementById(About);
 
+        About.addEventListener('mouseover', () => {
+            About.classname = 'header-text';
+        });
     </script>
 </body>
 </html>
