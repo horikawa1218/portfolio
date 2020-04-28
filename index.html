@@ -10,21 +10,21 @@
         margin: 0px;
         width: auto;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        background-image: url("img/triangele.png");
-        background-repeat: no-repeat;
-        background-position-x: center;
-        background-position-y: 30px;
         background-color: rgb(233, 232, 232);
         text-align: center;
+        z-index: 1;
         }
-        #menu{
-            display: flex;
-            width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        .parallax{
+            position:relative;
+            background-image: url("img/triangele.png");
+            background-size: 700px;
+            height: 100%;
+            background-attachment: fixed;
+            background-position-x: center;
+            /* background-size: cover; */
+            background-repeat: no-repeat;
+            padding-top: 30px;
         }
-
-
         .flex{
             width: 700px;
             margin-left: auto;
@@ -32,63 +32,166 @@
             
             display: flex;
         }
-        #About,#Work,#Profile,#Contact{
-            cursor: pointer;
+        header{
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+        }
+        a{
+	        display: inline-block;
+	        position: relative;
+	        color: #555;
+ 	        text-decoration: none;
             margin-left: 100px;
         }
-        #About.header-text{
-            background-color: lime;
+        a:before{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 3px;
+            background: #086776;
+            transform: scale(0,1);
+            transition: .8s;
         }
-
+        a:hover::before{
+            transform: scale(1);
+        }
+        #edit{
+            filter: opacity(30%);
+            transition: .7s;
+        }
+        #edit.edit-filter{
+            filter: opacity(100%);
+        }
+        .img-live2d{
+            margin-left: 80px;
+        }
+        #live2d{
+            filter: opacity(30%);
+            transition: .7s;
+        }
+        #live2d.live2d-filter{
+            filter: opacity(100%);
+        }
+        #pc{
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+            filter: opacity(30%);
+            transition: .7s;
+        }
+        #pc.pc-filter{
+            filter: opacity(100%);
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        nav{
+            display: flex;
+            padding: 20px;
+            scroll-behavior: smooth;
+        }
+        h1{
+            font-size: 250%;
+        }
+        textarea{
+            min-width: 200px;
+            min-height: 100px;
+        }
+        #textarea{
+            display: flex;
+            justify-content: center;
+        }
+        #massege{
+            margin-left: 55px;
+        }
+        .bold{
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <header id="menu">
-        <div id="About">About</div>
-        <div id="Work">Work</div>
-        <div id="Profile">Profile</div>
-        <div id="Contact">Contact</div>
+    <header>
+        <nav>
+            <div><a href="#About">About</a></div>
+            <div><a href="#Work">Work</a></div>
+            <div><a href="#Profile">Profile</a></div>
+            <div><a href="#Contact">Contact</a></div>
+        </nav> 
     </header>
+    <div class="parallax"><img src="img/Name.png">
 
-    <img src="img/Name.png">
+    
+    
+        <p>movie editing/Live2D modeling</p>
+        <p>/HTML5,CSS,JavaScript(勉強中)</p>
 
-    <p>movie editing/Live2D modeling</p>
-    <p>/HTML5,CSS,JavaScript(勉強中)</p>
+        <div class="flex">
+            <div id="edit"><img src="img/edit.jpg" width="300px"><p>映像編集</p></div>
+            <div class='img-live2d'>
+                <div id="live2d"><img src="img/Live2D.png" width="300px"><p>Live2D</p></div>
+            </div>
+        </div>
+        <div id="pc"><img src="img/PC.jpeg" width="300px"><p>Html/CSS/JavaScript</p></div>
 
-    <div class="flex"><div class="img-margin"><img src="img/edit.jpg" width="300px"></div>
-    <div class="img-margin"><img src="img/Live2D.png" width="300px"></div></div>
-    <span>映像編集</span><span>Live2D</span>
-    <p><img src="img/PC.jpeg" width="300px" ></p><p>Html/CSS/JavaScript</p>
+        <h1 id="About">About</h1>
+        <p class="bold">Daichi Horikawa</p>
+        <p>堀川 大地</p>
+        <img src="img/IMG_0111.JPG">
 
-    <h1>About</h1>
-    <p>Daichi Horikawa</p>
-    <p>堀川 大地</p>
-    <img src="img/IMG_2244.jpg">
+        <h1 id="Work">Work</h1>
+        <p>フォース株式会社</p>
+        <p>WEBシステムエンジニア志望</p>
 
-    <h1>Work</h1>
-    <p>フォース株式会社</p>
-    <p>フロントエンドエンジニア志望</p>
+        <h1 id="Profile">Profile</h1>
+        <p>静岡県 出身</p>
+        <p>1997年12月18日生</p>
+        <p>ソフトテニス</p>
+        <p>水泳</p>
+        <p>ゲーム</p>
 
-    <h1>Profile</h1>
-    <p>静岡県 出身</p>
-    <p>1997年12月18日生</p>
-    <p>ソフトテニス</p>
-    <p>水泳</p>
-    <p>ゲーム</p>
-
-    <h1>Contact</h1>
-    <p>Name</p><input type="text">
-    <p>Email</p><input type="text">
-    <p>message</p><input type="text">
+        <h1 id="Contact">Contact</h1>
+        <div id="textarea">
+            <div>
+                <p>Name</p><input type="text">
+                <p>Email</p><input type="text">
+            </div>
+            <div id="massege">
+                <p>message</p>
+                <div><textarea name="msg" cols="30" rows="10"></textarea></div>
+            </div>
+        </div>
+            <br><p><button>send</button></p>
+    </div>
 
     <script>
         'use strict';
         
-        const About = document.getElementById(About);
+        const edit = document.getElementById('edit');
+        const live2d = document.getElementById('live2d');
+        const pc = document.getElementById('pc');
 
-        About.addEventListener('mouseover', () => {
-            About.classname = 'header-text';
+        edit.addEventListener('mouseover',() => {
+            edit.className = ('edit-filter');
         });
+        live2d.addEventListener('mouseover',() => {
+            live2d.className = ('live2d-filter');
+        });
+        pc.addEventListener('mouseover', () => {
+            pc.className = ('pc-filter');
+        });
+        edit.addEventListener('mouseleave',() => {
+            edit.className = '';
+        });
+        live2d.addEventListener('mouseleave',() => {
+            live2d.className = '';
+        });
+        pc.addEventListener('mouseleave',() => {
+            pc.className = '';
+        });
+
     </script>
 </body>
 </html>
