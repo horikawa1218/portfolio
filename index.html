@@ -21,7 +21,6 @@
             height: 100%;
             background-attachment: fixed;
             background-position-x: center;
-            /* background-size: cover; */
             background-repeat: no-repeat;
             padding-top: 30px;
         }
@@ -40,7 +39,7 @@
         a{
 	        display: inline-block;
 	        position: relative;
-	        color: #555;
+	        color: rgb(82, 82, 82);
  	        text-decoration: none;
             margin-left: 100px;
         }
@@ -57,6 +56,9 @@
         }
         a:hover::before{
             transform: scale(1);
+        }
+        a:hover{
+            color: #5555;
         }
         #edit{
             filter: opacity(30%);
@@ -96,6 +98,12 @@
         h1{
             font-size: 250%;
         }
+        #Work{
+            margin-top: 90px;
+        }
+        #Profile{
+            margin-top: 90px;
+        }
         textarea{
             min-width: 200px;
             min-height: 100px;
@@ -109,6 +117,52 @@
         }
         .bold{
             font-weight: bold;
+        }
+        .profile-img{
+            background-repeat: no-repeat;
+            width: 220px;
+            height: 160px;
+            background-size: contain;
+            line-height: 100px;
+            font-weight: bold;
+        }
+        #tennis{
+            background-image: url("img/tennis.jpeg");
+            left: 50%;
+            margin-left: -350px;
+            position: absolute;
+        }
+        #swim{
+            background-image: url("img/swim.jpeg");
+            right: 50%;
+            margin-right: -350px;
+            position: absolute;
+        }
+        #game{
+            background-image: url("img/game.jpeg");
+            margin: auto;
+            margin-top: 90px;
+            margin-bottom: 90px;
+            background-size: contain;
+            line-height: 100px;
+        }
+        #bg-mask-tennis{
+            height: 92%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        #bg-mask-swim{
+            margin-top: -16px;
+            height: 92%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        #bg-mask-game{
+            margin-right: 7px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        #send{
+            margin-top: 50px;
+            margin-bottom: 100px;
         }
     </style>
 </head>
@@ -129,12 +183,12 @@
         <p>/HTML5,CSS,JavaScript(勉強中)</p>
 
         <div class="flex">
-            <div id="edit"><img src="img/edit.jpg" width="300px"><p>映像編集</p></div>
+            <div id="edit"><img src="img/edit.jpg" width="350px"><p>映像編集</p></div>
             <div class='img-live2d'>
-                <div id="live2d"><img src="img/Live2D.png" width="300px"><p>Live2D</p></div>
+                <div id="live2d"><img src="img/Live2D.png" width="350px"><p>Live2D</p></div>
             </div>
         </div>
-        <div id="pc"><img src="img/PC.jpeg" width="300px"><p>Html/CSS/JavaScript</p></div>
+        <div id="pc"><img src="img/PC.jpeg" width="350px"><p>Html/CSS/JavaScript</p></div>
 
         <h1 id="About">About</h1>
         <p class="bold">Daichi Horikawa</p>
@@ -143,14 +197,14 @@
 
         <h1 id="Work">Work</h1>
         <p>フォース株式会社</p>
-        <p>WEBシステムエンジニア志望</p>
+        <p>WEBシステム開発</p>
 
         <h1 id="Profile">Profile</h1>
         <p>静岡県 出身</p>
         <p>1997年12月18日生</p>
-        <p>ソフトテニス</p>
-        <p>水泳</p>
-        <p>ゲーム</p>
+        <div id="tennis" class="profile-img"><div id="bg-mask-tennis">ソフトテニス</div></div>
+        <div id="swim" class="profile-img"><div id="bg-mask-swim"><p>水泳</p></div></div>
+        <div id="game" class="profile-img"><div id="bg-mask-game">ゲーム</div></div>
 
         <h1 id="Contact">Contact</h1>
         <div id="textarea">
@@ -163,7 +217,7 @@
                 <div><textarea name="msg" cols="30" rows="10"></textarea></div>
             </div>
         </div>
-            <br><p><button>send</button></p>
+            <input type="submit" value="send" onclick="alert('送信が完了しました');" id="send">
     </div>
 
     <script>
@@ -182,6 +236,7 @@
         pc.addEventListener('mouseover', () => {
             pc.className = ('pc-filter');
         });
+
         edit.addEventListener('mouseleave',() => {
             edit.className = '';
         });
